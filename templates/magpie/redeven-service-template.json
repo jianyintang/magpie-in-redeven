@@ -1,0 +1,73 @@
+{
+  "kind": "redeven.service-template",
+  "schema_version": 4,
+  "template_id": "magpie",
+  "service_family_id": "magpie",
+  "revision": 1,
+  "default_locale": "en-US",
+  "locales": ["en-US", "zh-CN"],
+  "source_url": "https://github.com/yetone/magpie",
+  "docker_source_url": "https://github.com/yetone/magpie/blob/main/Dockerfile",
+  "deployment": "container",
+  "container_mode": "single",
+  "default_access_mode": "unified_proxy",
+  "recommended_version": "0.1.4759",
+  "supported_platforms": ["linux-amd64", "linux-arm64"],
+  "platform_artifacts": {
+    "linux-amd64": "ghcr.io/yetone/magpie:0.1.4759@sha256:6a100bae3e531c1d8a534f327c95f6f4e79f382be2c1fa3d1f1f4db4c7e13508",
+    "linux-arm64": "ghcr.io/yetone/magpie:0.1.4759@sha256:eecb680625f2b462e7a0f6e784fa43ab9cdcfe1c927c1588cafaf9231665e8c6"
+  },
+  "notices": [
+    {
+      "id": "admin-key",
+      "revision": 1,
+      "severity": "warning",
+      "acknowledgement_required": true
+    }
+  ],
+  "spec": {
+    "schema_version": 7,
+    "kind": "container",
+    "endpoint": {
+      "scheme": "http",
+      "container_port": 3430,
+      "path": "/",
+      "health_path": "/",
+      "startup_timeout_sec": 60
+    },
+    "parameters": [
+      {
+        "name": "MAGPIE_WEB_KEY",
+        "label": "Web admin key",
+        "description": "Use a unique secret of at least 16 characters: letters, digits, or - . _ ~. Enter it again on the Magpie sign-in page.",
+        "type": "secret",
+        "required": true
+      }
+    ],
+    "container": {
+      "image": "${REDEVEN_CATALOG_ARTIFACT}",
+      "command": ["web", "--addr", "0.0.0.0:3430", "--no-open"],
+      "environment": {
+        "MAGPIE_WEB_KEY": "${MAGPIE_WEB_KEY}"
+      },
+      "mounts": [
+        {
+          "resource_id": "config",
+          "type": "volume",
+          "source": "config",
+          "target": "/config"
+        },
+        {
+          "resource_id": "tmp",
+          "type": "tmpfs",
+          "target": "/tmp"
+        }
+      ],
+      "user": "65532:65532",
+      "read_only_root": true,
+      "pids_limit": 512,
+      "cap_drop": ["ALL"],
+      "security_opts": ["no-new-privileges:true"]
+    }
+  }
+}

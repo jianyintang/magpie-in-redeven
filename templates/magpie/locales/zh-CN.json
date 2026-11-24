@@ -1,0 +1,10 @@
+{
+  "name": "Magpie",
+  "description": "将 Magpie 模型网关和网页控制台部署为独立服务。",
+  "notices": {
+    "admin-key": {
+      "title": "请妥善保管网页管理密钥",
+      "description": "此密钥可管理整个 Magpie 实例，包括模型提供商设置和凭据。请勿分享此密钥或原始容器日志，并为每个模型客户端单独创建 Magpie 网关密钥。"
+    }
+  }
+}

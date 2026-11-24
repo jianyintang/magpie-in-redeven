@@ -1,0 +1,10 @@
+{
+  "name": "Magpie",
+  "description": "Run the Magpie model gateway and web console as an independent service.",
+  "notices": {
+    "admin-key": {
+      "title": "Protect the web admin key",
+      "description": "This key grants full access to the Magpie instance, including its provider settings and credentials. Keep it private and issue a separate Magpie Gateway key for each model client. Do not share raw container logs."
+    }
+  }
+}
