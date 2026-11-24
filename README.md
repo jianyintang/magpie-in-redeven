@@ -25,3 +25,5 @@ go run github.com/floegence/redeven-service-templates/cmd/validate-template@v0.8
 ```
 
 Update both architecture digests and the recommended version together. Increment the template `revision` on every change inside its directory.
+
+The template icon is Magpie's [upstream web favicon](https://github.com/yetone/magpie/blob/95e6a4180866afde186e0f1a25369388c7fd7e7f/internal/gui/assets/icons/favicon.svg), with its MIT license notice embedded in the SVG.
