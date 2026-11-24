@@ -24,6 +24,10 @@ The template is in [`templates/magpie`](templates/magpie). To validate it agains
 go run github.com/floegence/redeven-service-templates/cmd/validate-template@v0.8.2 --current ./templates/magpie
 ```
 
-Update both architecture digests and the recommended version together. Increment the template `revision` on every change inside its directory.
+The [Sync Magpie Template workflow](https://github.com/jianyintang/magpie-in-redeven/actions/workflows/sync-magpie.yml) checks the [latest official GitHub release](https://github.com/yetone/magpie-releases/releases/latest) once a day at 21:17 UTC. Only a newer non-prerelease version with confirmed `linux/amd64` and `linux/arm64` images at its exact GHCR version tag is eligible. The workflow pins both digests, increments the template `revision`, and publishes to `main` after validation. Failed checks leave the published revision in place; the next scheduled run tries again. If the digests change under a version already pinned, review the change manually.
+
+Use **Run workflow** on `main` to check outside the daily schedule. The manual run defaults to **dry run** and validates without pushing. Redeven's marketplace picks up the revision during its own indexing cycle. Existing deployments are not changed or restarted.
+
+For manual template changes, update both architecture digests and the recommended version together when changing releases. Increment the template `revision` on every change inside its directory.
 
 The template icon is Magpie's [upstream web favicon](https://github.com/yetone/magpie/blob/95e6a4180866afde186e0f1a25369388c7fd7e7f/internal/gui/assets/icons/favicon.svg), with its MIT license notice embedded in the SVG.
