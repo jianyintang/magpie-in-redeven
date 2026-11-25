@@ -3,19 +3,25 @@
   "schema_version": 4,
   "template_id": "magpie",
   "service_family_id": "magpie",
-  "revision": 2,
+  "revision": 3,
   "default_locale": "en-US",
-  "locales": ["en-US", "zh-CN"],
+  "locales": [
+    "en-US",
+    "zh-CN"
+  ],
   "source_url": "https://github.com/yetone/magpie",
   "docker_source_url": "https://github.com/yetone/magpie/blob/main/Dockerfile",
   "deployment": "container",
   "container_mode": "single",
   "default_access_mode": "unified_proxy",
-  "recommended_version": "0.1.4759",
-  "supported_platforms": ["linux-amd64", "linux-arm64"],
+  "recommended_version": "0.1.4777",
+  "supported_platforms": [
+    "linux-amd64",
+    "linux-arm64"
+  ],
   "platform_artifacts": {
-    "linux-amd64": "ghcr.io/yetone/magpie:0.1.4759@sha256:6a100bae3e531c1d8a534f327c95f6f4e79f382be2c1fa3d1f1f4db4c7e13508",
-    "linux-arm64": "ghcr.io/yetone/magpie:0.1.4759@sha256:eecb680625f2b462e7a0f6e784fa43ab9cdcfe1c927c1588cafaf9231665e8c6"
+    "linux-amd64": "ghcr.io/yetone/magpie:0.1.4777@sha256:274c00d875a74871c346aff76181b6970620730cf1cd92b5dba69094e9ab65e6",
+    "linux-arm64": "ghcr.io/yetone/magpie:0.1.4777@sha256:34ae5435d31285e8f99c3c9f13da4901aa05095ee89e278e63ae0a5d81bd0aee"
   },
   "notices": [
     {
@@ -50,7 +56,12 @@
     ],
     "container": {
       "image": "${REDEVEN_CATALOG_ARTIFACT}",
-      "command": ["web", "--addr", "0.0.0.0:3430", "--no-open"],
+      "command": [
+        "web",
+        "--addr",
+        "0.0.0.0:3430",
+        "--no-open"
+      ],
       "environment": {
         "MAGPIE_WEB_KEY": "${MAGPIE_WEB_KEY}"
       },
@@ -70,8 +81,12 @@
       "user": "65532:65532",
       "read_only_root": true,
       "pids_limit": 512,
-      "cap_drop": ["ALL"],
-      "security_opts": ["no-new-privileges:true"]
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opts": [
+        "no-new-privileges:true"
+      ]
     }
   }
 }
