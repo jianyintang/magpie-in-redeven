@@ -3,7 +3,7 @@
   "schema_version": 4,
   "template_id": "magpie",
   "service_family_id": "magpie",
-  "revision": 3,
+  "revision": 4,
   "default_locale": "en-US",
   "locales": [
     "en-US",
@@ -14,14 +14,14 @@
   "deployment": "container",
   "container_mode": "single",
   "default_access_mode": "unified_proxy",
-  "recommended_version": "0.1.4777",
+  "recommended_version": "0.1.4824",
   "supported_platforms": [
     "linux-amd64",
     "linux-arm64"
   ],
   "platform_artifacts": {
-    "linux-amd64": "ghcr.io/yetone/magpie:0.1.4777@sha256:274c00d875a74871c346aff76181b6970620730cf1cd92b5dba69094e9ab65e6",
-    "linux-arm64": "ghcr.io/yetone/magpie:0.1.4777@sha256:34ae5435d31285e8f99c3c9f13da4901aa05095ee89e278e63ae0a5d81bd0aee"
+    "linux-amd64": "ghcr.io/yetone/magpie:0.1.4824@sha256:db4a75d7ce064b538f41c1d515de17d2bce6ff1342e00fa65fdff5db84f0e1a4",
+    "linux-arm64": "ghcr.io/yetone/magpie:0.1.4824@sha256:3c6e397b90505c0e25898d4d9d859d001bb327132ad8141b995d621a9ef767f7"
   },
   "notices": [
     {
